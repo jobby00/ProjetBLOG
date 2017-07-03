@@ -66,7 +66,7 @@ $app['dao.comment'] = function ($app) {
     $commentDAO->setArticleDAO($app['dao.article']);
     return $commentDAO;
 };
-/**
+
 //Register error handler
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     switch ($code) {
@@ -81,4 +81,3 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     }
     return $app['twig']->render('error.html.twig', array('message' => $message));
 });
-*/

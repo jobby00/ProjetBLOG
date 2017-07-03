@@ -3,29 +3,49 @@
 {% block title %}User authentication{% endblock %}
 
 {% block content %}
-<h2 class="text-center">{{ block('title') }}</h2>
-{% if error %}
-<div class="alert alert-danger">
-    <strong>Login failed!</strong> {{ error }}
-</div>
-{% endif %}
-<div class="well">
-    <form class="form-signin form-horizontal" role="form" action="{{ path('login_check') }}" method="post">
-        <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-            <input type="text" name="_username" value="{{ last_username }}" class="form-control" placeholder="Enter your username" required autofocus>
+    <!-- main-container start -->
+    <!-- ================ -->
+    <section class="main-container content">
+
+        <div class="container">
+            <div class="row">
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="300">
+                    <div class="form-block center-block">
+                        <h2 class="text-center">{{ block('title') }}</h2>
+                        {% if error %}
+                            <h2 class="title">Login</h2>
+                            <strong>Login failed!</strong> {{ error }}
+                        {% endif %}
+                        <form class="form-horizontal"   role="form" action="{{ path('login_check') }}" method="post">
+                            <div class="form-group has-feedback">
+                                <label for="inputUserName" class="col-sm-3 control-label">User Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="_username" value="{{ last_username }}" class="form-control" id="inputUserName" placeholder="User Name" required>
+                                    <i class="fa fa-user form-control-feedback"></i>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" name="_password" class="form-control" id="inputPassword" placeholder="Password" required>
+                                    <i class="fa fa-lock form-control-feedback"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-8">
+                                    <button type="submit" class="btn btn-group btn-default btn-sm">Log In</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- main end -->
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                <input type="password" name="_password" class="form-control" placeholder="Enter your password" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-            </div>
-        </div>
-    </form>
-</div>
+    </section>
+    <!-- main-container end -->
+  </div>
+    <!-- page-wrapper end -->
 {% endblock %}

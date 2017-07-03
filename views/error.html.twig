@@ -1,14 +1,32 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}Error!{% endblock %}
+{% block title %}error!{% endblock %}
 
 {% block content %}
-<div class="row" id="errorPanel">
-    <div class="col-xs-5">
-        <img class="img-responsive pull-right" src="{{ asset('/images/404-ghost.png') }}" alt="Error ghost"/>
-    </div>
-    <div class="col-xs-6">
-        <h1>Whoops...<br><small>{{ message }}</small></h1>
-    </div>
-</div>
+    <!-- main-container start -->
+    <!-- ================ -->
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-6 col-md-offset-3">
+                    <h1 class="title">Ooops! Page Not Found - 404</h1>
+                    <br>
+                    <div class="col-xs-5">
+                        <img class="img-responsive pull-right" src="{{ asset('/images/404-ghost.png') }}" alt="Error ghost"/>
+                    </div>
+                    <p>
+                        <h1>Whoops...<br><small>{{ message }}</small></h1>
+                    <br>
+                        <a href="{{ path('home') }}">Retournez à la page d'accueil.</a>
+                    </p>
+                </div>
+                <!-- main end -->
+
+            </div>
+        </div>
+    </section>
 {% endblock %}

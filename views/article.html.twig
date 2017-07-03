@@ -5,7 +5,7 @@
 {% block content %}
 <!-- main-container start -->
 <!-- ================ -->
-<section class="main-container">
+<section class="main-container center">
 
     <div class="container">
         <div class="row">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="blogpost-content">
                             <header>
-                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#">{{article.author}}</a></div>
+                                <div class="submitted"><i class="fa fa-user pr-5"></i> by {{article.author}}</div>
                             </header>
                             {% for flashMessage in app.session.flashbag.get('success') %}
                                 <div class="alert alert-success">
@@ -55,9 +55,6 @@
 
                     <!-- comment start -->
                     <div class="comment clearfix">
-                        <div class="comment-avatar">
-                            <img src="images/avatar.jpg" alt="avatar">
-                        </div>
                         <div class="comment-content">
                             <h3>Comment title</h3>
                             {% if comments == false %}

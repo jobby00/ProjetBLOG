@@ -6,7 +6,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>ProjeBLOG</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta name="description" content="iDea a Bootstrap-based, Responsive HTML5 Template">
     <meta name="Jobby00" content="htmlcoder.me">
 
@@ -28,6 +28,8 @@
 
     <!-- Fontello CSS -->
     <link href="{{asset('/lib/assets/fonts/fontello/css/fontello.css')}}" rel="stylesheet">
+    <!-- MyCustom css -->
+    <link href="{{asset('/css/mycustom.css?v1')}}" rel="stylesheet">
 
     <!-- Plugins -->
     <link href="{{asset('/lib/assets/plugins/rs-plugin/css/settings.css')}}" media="screen" rel="stylesheet">
@@ -50,6 +52,7 @@
 
     <!-- TinyMCE -->
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -88,7 +91,7 @@
 
                         <!-- logo -->
                         <div class="logo">
-                            <a href="{{ path('home') }}"><img id="logo" src="{{asset('/lib/assets/images/logo_dark_header_red.png" alt="iDea')}}"></a>
+                            <a href="{{ path('home') }}"><img id="logo" src="{{asset('/lib/assets/images/logo_dark_header_red.png')}}" alt="iDea"></a>
                         </div>
 
                         <!-- name-and-slogan -->
@@ -128,25 +131,10 @@
                                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                         <ul class="nav navbar-nav navbar-right">
                                             <li>
-                                                <a href="{{ path('home') }}" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('home') }}" >Accueil</a>
                                             </li>
                                             <li class="active">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components</a>
-                                            </li>
-                                            <li>
-                                                <a href="portfolio-3col.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-listing-3col.html" class="dropdown-toggle" data-toggle="dropdown">Shop</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-right-sidebar.html" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('about') }}">Billet simple pour l'Alaska</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -182,7 +170,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>Copyright © 2016 iDea by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
+                        <p>© Copyright 2017 Tous droits réservés à JEAN FORTEROCHE <a href="{{ path('mentions') }}">Mentions légales</a>.</p>
                     </div>
                     <div class="col-md-6">
                         <nav class="navbar navbar-default" role="navigation">
@@ -206,7 +194,6 @@
                                     {% else %}
                                     <li><a href="{{ path('login') }}">Connexion</a></li>
                                     {% endif %}
-                                    <li><a href="page-contact.html">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
