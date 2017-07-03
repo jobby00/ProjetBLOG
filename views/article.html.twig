@@ -37,7 +37,7 @@
                                     {{ flashMessage }}
                                 </div>
                             {% endfor %}
-                            <p>{{ article.content | nl2br}}</p>
+                            <p>{{ article.content |raw |raw}}</p>
                         </div>
                     </div>
                     <footer class="clearfix">
