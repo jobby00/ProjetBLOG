@@ -196,7 +196,7 @@
                 <div class="col-md-12">
                     <h2 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h2>
                     <p class="lead text-center"><i>{{ article.date}}</i></p>
-                    <p class="space-top">{{ article.content | raw | truncate(250, true, '...')}}</p>
+                    <p class="space-top">{{ article.content |raw|raw |truncate(250, true, '...')}}</p>
                     <a href="{{ path('article', { 'id': article.id }) }}" class="btn btn-lg btn-default center">Lire la suite</a>
                 </div>
                 {% endfor %}

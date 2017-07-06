@@ -46,3 +46,18 @@ footer #footer{
 .table>thead>tr>th {
     background-color: #3d9be8 !important;
 }
+
+.nav-tabs > li.active > a:after {
+    background-color: #1178b1 !important;
+}
+
+.scrollToTop {
+    background-color: rgba(44, 62, 80, 0.75) !important;
+}
+
+.table-responsive>.table > thead > tr > th {
+    text-align: center !important;
+    border-bottom: 1px solid #034d63 !important;
+    background-color: #e84c3d;
+    color: #ffffff;
+}
