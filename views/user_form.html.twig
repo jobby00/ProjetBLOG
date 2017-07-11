@@ -1,18 +1,19 @@
 {% extends 'layout.html.twig' %}
 {% set adminMenu = true %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Ajouter un utilisateur{% endblock %}
 
 {% block content %}
 <section class="main-container">
 
     <div class="container">
+        <br/><br/>
         <div class="row">
 
             <!-- main start -->
             <!-- ================ -->
             <div class="main col-md-12">
-                <h2 class="text-center">{{ block('title') }}</h2>
+                <h2 class="text-center">Ajouter un utilisateur</h2>
                 {% for flashMessage in app.session.flashbag.get('success') %}
                 <div class="alert alert-success">
                     {{ flashMessage }}
@@ -70,7 +71,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-5 col-sm-3">
-                            <input type="submit" class="btn btn-primary" value="Save" />
+                            <input type="submit" class="btn btn-primary" value="Enregistrer" />
                         </div>
                     </div>
                 {{ form_end(userForm) }}
@@ -79,5 +80,5 @@
             </div>
         </div>
     </section>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 {% endblock %}

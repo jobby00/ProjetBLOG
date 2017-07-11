@@ -42,7 +42,7 @@
                                  data-splitin="chars"
                                  data-elementdelay="0.07"
                                  data-endelementdelay="0.1"
-                                 data-splitout="chars">Billet simple pour l'Alaska
+                                 data-splitout="chars">Bienvenue sur ce blog
                             </div>
 
                             <!-- LAYER NR. 2 -->
@@ -52,7 +52,7 @@
                                  data-speed="600"
                                  data-start="0"
                                  data-end="10000"
-                                 data-endspeed="600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Quia dolorum consectetur doloremque a aliquam ullam labore, ducimus adipisci iste animi <br> natus asperiores sequi assumenda minima blanditiis. Culpa quis consectetur ratione<br/>Jean Forteroche.
+                                 data-endspeed="600">Jean Forteroche
                             </div>
 
                             <!-- LAYER NR. 4 -->
@@ -105,7 +105,7 @@
                                  data-speed="600"
                                  data-start="0"
                                  data-end="10000"
-                                 data-endspeed="600">Quia dolorum consectetur doloremque a aliquam ullam labore, ducimus adipisci iste animi <br> natus asperiores sequi assumenda minima blanditiis. Culpa quis consectetur ratione<br/>Jean Forteroche.
+                                 data-endspeed="600">vous allez paticiper à l'écriture de ce roman
                             </div>
 
                             <!-- LAYER NR. 4 -->
@@ -196,7 +196,7 @@
                 <div class="col-md-12">
                     <h2 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h2>
                     <p class="lead text-center"><i>{{ article.date}}</i></p>
-                    <p class="space-top">{{ article.content |raw|raw |truncate(250, true, '...')}}</p>
+                    <p class="space-top">{{ article.content| striptags|slice(0, 50)}}</p>
                     <a href="{{ path('article', { 'id': article.id }) }}" class="btn btn-lg btn-default center">Lire la suite</a>
                 </div>
                 {% endfor %}

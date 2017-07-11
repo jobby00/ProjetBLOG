@@ -11,9 +11,11 @@
             <div class="row">
                 <!-- main start -->
                 <!-- ================ -->
+                <div class="main col-md-12">
+                    <h2 class="text-center">{{ block('title') }}</h2>
                 <div class="main object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="300">
                     <div class="form-block center-block">
-                        <h2 class="text-center">{{ block('title') }}</h2>
+
                         {% if error %}
                             <h2 class="title">Login</h2>
                             <strong>Login failed!</strong> {{ error }}
@@ -43,6 +45,7 @@
                 </div>
                 <!-- main end -->
             </div>
+                </div>
         </div>
     </section>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
