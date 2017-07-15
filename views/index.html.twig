@@ -63,7 +63,6 @@
                                  data-start="0"
                                  data-end="10000"
                                  data-endspeed="600">
-                                <a href="#page-start" class="btn btn-lg smooth-scroll"><i class="fa fa-angle-double-down fa-2x"></i></a>
                             </div>
 
                         </li>
@@ -116,7 +115,6 @@
                                  data-start="0"
                                  data-end="10000"
                                  data-endspeed="600">
-                                <a href="#page-start" class="btn btn-lg smooth-scroll"><i class="fa fa-angle-double-down fa-2x"></i></a>
                             </div>
 
                         </li>
@@ -168,7 +166,6 @@
                                  data-start="0"
                                  data-end="10000"
                                  data-endspeed="600">
-                                <a href="#page-start" class="btn btn-lg smooth-scroll"><i class="fa fa-angle-double-down fa-2x"></i></a>
                             </div>
 
                         </li>
@@ -196,7 +193,7 @@
                 <div class="col-md-12">
                     <h2 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h2>
                     <p class="lead text-center"><i>{{ article.date}}</i></p>
-                    <p class="space-top">{{ article.content| striptags|slice(0, 50)}}</p>
+                    <p class="space-top">{{ article.content| striptags|slice(0, 250) |raw |raw}}</p>
                     <a href="{{ path('article', { 'id': article.id }) }}" class="btn btn-lg btn-default center">Lire la suite</a>
                 </div>
                 {% endfor %}

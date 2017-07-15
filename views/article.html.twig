@@ -8,7 +8,6 @@
 <section class="main-container">
 
     <div class="container">
-        <br/><br/>
         <div class="row">
             <!-- main start -->
             <!-- ================ -->
@@ -43,159 +42,93 @@
                     <footer class="clearfix">
                         <ul class="links pull-left">
                             <li><i class="fa fa-comment-o pr-5"></i> <a href="#">{{ comments | length }} commentaires</a> |</li>
-                            <li><i class="fa fa-tags pr-5"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a> </li>
                         </ul>
                     </footer>
                 </article>
                 <!-- blogpost end -->
 
                 <!-- comments start -->
-                <div class="comments">
-                    <h2 class="title">Commentaires</h2>
+                        <div class="comments">
+                            <h2 class="title">Commentaires</h2>
 
-                    <!-- comment start -->
-                    <div class="comment clearfix">
-                        <div class="comment-content">
-                            <h3>Comment title</h3>
-                            {% if comments == false %}
-                            <p> Il n'y a pas de commentaires<br><br> <br> </p>
-                            {% else %}
-                            {% for firstcomment in comments %}
-                            {% if firstcomment.comParent == NULL %}
-                            <div class="comment-meta">By <a href="#">{{ firstcomment.author}}</a> | {{ firstcomment.date}}</div>
-                            <div class="comment-body clearfix">
-                                <p><p> {{firstcomment.content}} </p></p>
-                                <div class="nav-tabs-wrapper">
-                                    <ul class="nav nav-tabs" data-tabs="tabs">
-                                        <li><a href="#signaler{{firstcomment.id}}" data-toggle="tab"><i class="material-icons">Signaler </i></a></li>
-                                        <li><a href="#repondre{{firstcomment.id}}" data-toggle="tab"><i class="material-icons">Répondre</i></a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="tab-content">
-                                <div class="tab-pane" id="signaler{{firstcomment.id}}">
-                                    Ce commentaire vous semble inapproprié ? <br>
-                                    <a href="{{ path('comment_signal', { 'id': firstcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
-                                </div>
-                                <div class="tab-pane" id="repondre{{firstcomment.id}}">
-                                    <h4>Répondre un commentaire</h4>
-                                    <form method="post" action="comment/{{ article.id }}/comment">
-                                        <div class="col-sm-4">
-                                            <p> <b> Votre prénom : </b> </p>
-                                            <input type="text" value="" name="authorMessage"  placeholder="Prénom" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <p> <b> Votre Message : </b> </p>
-                                            <input type="textarea" name="commentMessage" placeholder="Message"  class="form-control">
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <input type="hidden" name="articleID" value="{{article.id}}" >
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <input type="hidden" name="commentaireParent" value="{{firstcomment.id}}" >
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <input type="submit" value="envoyer" class="btn btn-primary" >
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane active" id="home{{firstcomment.id}}">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- comment start -->
-                        {% for secondcomment in comments %}
-                            {% if secondcomment.comParent == firstcomment.id %}
-                                <div class="comment clearfix">
-                                    <p>  <b>     </b> <i>  </i></p>
-
-                                    <div class="comment-content clearfix">
-                                        <h3>Comment title</h3>
-                                        <div class="comment-meta">By : <i class="material-icons">{{ secondcomment.author}}</i><a href="#"></a> | <i> {{ secondcomment.date}}</i></div>
-                                        <div class="comment-body">
-                                            <p> {{secondcomment.content}} </p>
-                                            <div class="card card-nav-tabs2  card-plain">
-                                                <div class="header2 header-danger">
-                                                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-                                                    <div class="nav-tabs-navigation">
-                                                        <div class="nav-tabs-wrapper">
-                                                            <ul class="nav nav-tabs" data-tabs="tabs">
-                                                                <li><a href="#signaler{{secondcomment.id}}" data-toggle="tab"><i class="material-icons">Signaler </i></a></li>
-                                                                <li><a href="#repondre{{secondcomment.id}}" data-toggle="tab"><i class="material-icons">Répondre</i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane" id="signaler{{secondcomment.id}}">
-                                                            Ce commentaire vous semble inapproprié ? <br>
-                                                            <a href="{{ path('comment_signal', { 'id': secondcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
-                                                        </div>
-                                                        <div class="tab-pane" id="repondre{{secondcomment.id}}">
-                                                            <h4>Répondre un commentaire</h4>
-                                                            <form method="post" action="comment/{{ article.id }}/comment">
-                                                                <div class="col-sm-4">
-                                                                    <p> <b> Votre prénom : </b> </p>
-                                                                    <input type="text" value="" name="authorMessage"  placeholder="Prénom" class="form-control" />
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <p> <b> Votre Message : </b> </p>
-                                                                    <input type="textarea" name="commentMessage" placeholder="Message"  class="form-control">
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <input type="hidden" name="articleID" value="{{article.id}}" >
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <input type="hidden" name="commentaireParent" value="{{secondcomment.id}}" >
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <input type="submit" value="envoyer" class="btn btn-primary" >
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="tab-pane active" id="home{{secondcomment.id}}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <!-- comment start -->
+                            <div class="comment ">
+                                <div class="comment-content comment1 clearfix">
+                                    {% if comments == false %}
+                                    <p> Il n'y a pas de commentaires<br><br> <br> </p>
+                                    {% else %}
+                                    {% for firstcomment in comments %}
+                                    {% if firstcomment.comParent == NULL %}
+                                    <div class="comment-meta">De :  <i class="material-icons">{{ firstcomment.author}}</i> | {{ firstcomment.date}}</div>
+                                    <div class="comment-body clearfix">
+                                        <p> {{firstcomment.content}} </p>
+                                        <div class="nav-tabs-wrapper">
+                                            <ul class="nav nav-tabs sigrepon" data-tabs="tabs">
+                                                <li><a href="#signaler{{firstcomment.id}}" data-toggle="tab"><i class="material-icons">Signaler </i></a></li>
+                                                <li><a href="#repondre{{firstcomment.id}}" data-toggle="tab"><i class="material-icons">Répondre</i></a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- comment end -->
+                                <div class="content">
+                                    <div class="tab-content tab-comment">
+                                        <div class="tab-pane" id="signaler{{firstcomment.id}}">
+                                            Ce commentaire vous semble inapproprié ? <br>
+                                            <a href="{{ path('comment_signal', { 'id': firstcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
+                                        </div>
+                                        <div class="tab-pane" id="repondre{{firstcomment.id}}">
+                                            <h4>Répondre un commentaire</h4>
+                                            <form method="post" action="comment/{{ article.id }}/comment">
+                                                <div class="col-sm-4">
+                                                    <p> <b> Votre prénom : </b> </p>
+                                                    <input type="text" value="" name="authorMessage"  placeholder="Prénom" class="form-control" />
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <p> <b> Votre Message : </b> </p>
+                                                    <input type="textarea" name="commentMessage" placeholder="Message"  class="form-control">
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <input type="hidden" name="articleID" value="{{article.id}}" >
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <input type="hidden" name="commentaireParent" value="{{firstcomment.id}}" >
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <input type="submit" value="envoyer" class="btn btn-primary" >
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane active" id="home{{firstcomment.id}}">
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- comment start -->
-                                {% for thirdcomment in comments %}
-                                    {% if thirdcomment.comParent == secondcomment.id %}
+                                {% for secondcomment in comments %}
+                                    {% if secondcomment.comParent == firstcomment.id %}
                                         <div class="comment clearfix">
-                                            <p>  <b>     </b> <i>  </i></p>
-
-                                            <div class="comment-content clearfix">
-                                                <h3>Comment title</h3>
-                                                <div class="comment-meta">By : <i class="material-icons">{{ thirdcomment.author}}</i><a href="#"></a> | <i> {{ thirdcomment.date}}</i></div>
+                                            <div class="comment-content comment2 clearfix">
+                                                <div class="comment-meta">De : <i class="material-icons">{{ secondcomment.author}}</i><a href="#"></a> | <i> {{ secondcomment.date}}</i></div>
                                                 <div class="comment-body">
-                                                    <p> {{thirdcomment.content}} </p>
+                                                    <p> {{secondcomment.content}} </p>
                                                     <div class="card card-nav-tabs2  card-plain">
                                                         <div class="header2 header-danger">
                                                             <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
                                                             <div class="nav-tabs-navigation">
                                                                 <div class="nav-tabs-wrapper">
-                                                                    <ul class="nav nav-tabs" data-tabs="tabs">
-                                                                        <li><a href="#signaler{{thirdcomment.id}}" data-toggle="tab"><i class="material-icons">Signaler</i></a></li>
-                                                                        <li><a href="#repondre{{thirdcomment.id}}" data-toggle="tab"><i class="material-icons">Répondre</i></a></li>
+                                                                    <ul class="nav nav-tabs sigrepon" data-tabs="tabs">
+                                                                        <li><a href="#signaler{{secondcomment.id}}" data-toggle="tab"><i class="material-icons">Signaler </i></a></li>
+                                                                        <li><a href="#repondre{{secondcomment.id}}" data-toggle="tab"><i class="material-icons">Répondre</i></a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="content">
-                                                            <div class="tab-content">
-                                                                <div class="tab-pane" id="signaler{{thirdcomment.id}}">
+                                                            <div class="tab-content tab-comment">
+                                                                <div class="tab-pane" id="signaler{{secondcomment.id}}">
                                                                     Ce commentaire vous semble inapproprié ? <br>
-                                                                    <a href="{{ path('comment_signal', { 'id': thirdcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
+                                                                    <a href="{{ path('comment_signal', { 'id': secondcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
                                                                 </div>
-                                                                <div class="tab-pane" id="repondre{{thirdcomment.id}}">
+                                                                <div class="tab-pane" id="repondre{{secondcomment.id}}">
                                                                     <h4>Répondre un commentaire</h4>
                                                                     <form method="post" action="comment/{{ article.id }}/comment">
                                                                         <div class="col-sm-4">
@@ -210,44 +143,99 @@
                                                                             <input type="hidden" name="articleID" value="{{article.id}}" >
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <input type="hidden" name="commentaireParent" value="{{thirdcomment.id}}" >
+                                                                            <input type="hidden" name="commentaireParent" value="{{secondcomment.id}}" >
                                                                         </div>
                                                                         <div class="col-sm-12">
                                                                             <input type="submit" value="envoyer" class="btn btn-primary" >
                                                                         </div>
                                                                     </form>
                                                                 </div>
-                                                                <div class="tab-pane active" id="home{{thirdcomment.id}}"></div>
+                                                                <div class="tab-pane active" id="home{{secondcomment.id}}">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="content">
-                                            <div class="tab-content">
-                                                <div class="tab-pane" id="signaler{{thirdcomment.id}}">
-                                                    Ce commentaire vous semble inapproprié ? <br>
-                                                    <a href="{{ path('comment_signal', { 'id': thirdcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
-                                                </div>
-                                                <div class="tab-pane active" id="home{{thirdcomment.id}}"></div>
-                                            </div>
-                                        </div>
                                         <!-- comment end -->
+                                        <!-- comment start -->
+                                        {% for thirdcomment in comments %}
+                                            {% if thirdcomment.comParent == secondcomment.id %}
+                                                <div class="comment clearfix">
+                                                    <div class="comment-content comment3 clearfix">
+                                                        <div class="comment-meta">De : <i class="material-icons">{{ thirdcomment.author}}</i><a href="#"></a> | <i> {{ thirdcomment.date}}</i></div>
+                                                        <div class="comment-body">
+                                                            <p> {{thirdcomment.content}} </p>
+                                                            <div class="card card-nav-tabs2  card-plain">
+                                                                <div class="header2 header-danger">
+                                                                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                                                                    <div class="nav-tabs-navigation">
+                                                                        <div class="nav-tabs-wrapper">
+                                                                            <ul class="nav nav-tabs sigrepon" data-tabs="tabs">
+                                                                                <li><a href="#signaler{{thirdcomment.id}}" data-toggle="tab"><i class="material-icons">Signaler</i></a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <div class="tab-content tab-comment">
+                                                                        <div class="tab-pane" id="signaler{{thirdcomment.id}}">
+                                                                            Ce commentaire vous semble inapproprié ? <br>
+                                                                            <a href="{{ path('comment_signal', { 'id': thirdcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
+                                                                        </div>
+                                                                        <div class="tab-pane" id="repondre{{thirdcomment.id}}">
+                                                                            <h4>Répondre un commentaire</h4>
+                                                                            <form method="post" action="comment/{{ article.id }}/comment">
+                                                                                <div class="col-sm-4">
+                                                                                    <p> <b> Votre prénom : </b> </p>
+                                                                                    <input type="text" value="" name="authorMessage"  placeholder="Prénom" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-sm-12">
+                                                                                    <p> <b> Votre Message : </b> </p>
+                                                                                    <input type="textarea" name="commentMessage" placeholder="Message"  class="form-control">
+                                                                                </div>
+                                                                                <div class="col-sm-12">
+                                                                                    <input type="hidden" name="articleID" value="{{article.id}}" >
+                                                                                </div>
+                                                                                <div class="col-sm-12">
+                                                                                    <input type="hidden" name="commentaireParent" value="{{thirdcomment.id}}" >
+                                                                                </div>
+                                                                                <div class="col-sm-12">
+                                                                                    <input type="submit" value="envoyer" class="btn btn-primary" >
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="tab-pane active" id="home{{thirdcomment.id}}"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane" id="signaler{{thirdcomment.id}}">
+                                                            Ce commentaire vous semble inapproprié ? <br>
+                                                            <a href="{{ path('comment_signal', { 'id': thirdcomment.id } )  }}" class="btn btn-danger btn-xs">Signaler</a>
+                                                        </div>
+                                                        <div class="tab-pane active" id="home{{thirdcomment.id}}"></div>
+                                                    </div>
+                                                </div>
+                                                <!-- comment end -->
+                                            {% endif %}
+                                        {% endfor %}
                                     {% endif %}
                                 {% endfor %}
-                            {% endif %}
-                        {% endfor %}
 
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
 
-                    </div>
-                    <!-- comment end -->
+                            </div>
+                            <!-- comment end -->
+                        </div>
 
-
-                </div>
                 <!-- comments end -->
 
                 <!-- comments form start -->
@@ -281,7 +269,6 @@
                     {{ form_end(commentForm) }}
                 </div>
                 <!-- comments form end -->
-
             </div>
             <!-- main end -->
         </div>
