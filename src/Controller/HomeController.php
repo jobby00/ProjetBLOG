@@ -21,6 +21,16 @@ class HomeController {
     }
 
     /**
+     * All articles page controller.
+     *
+     * @param Application $app Silex application
+     */
+    public function allarticlesAction(Application $app) {
+        $articles = $app['dao.article']->findAll();
+        return $app['twig']->render('allarticles.html.twig', array('articles' => $articles));
+    }
+
+    /**
      * About page controller.
      *
      * @param Application $app Silex application

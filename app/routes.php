@@ -1,4 +1,5 @@
 <?php
+
 use Symfony\Component\HttpFoundation\Request;
 use MicroCMS\Domain\Comment;
 use MicroCMS\Domain\Article;
@@ -11,6 +12,10 @@ use MicroCMS\Form\Type\UserType;
 // Home page
 $app->get('/', "MicroCMS\Controller\HomeController::indexAction")
     ->bind('home');
+//Tous les Artiles
+
+$app->get('/allarticles', "MicroCMS\Controller\HomeController::allarticlesAction")
+    ->bind('allarticles');
 
 // About page
 $app->get('/about', "MicroCMS\Controller\HomeController::aboutAction")
