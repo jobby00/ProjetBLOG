@@ -15,7 +15,7 @@
 
                 <!-- page-title start -->
                 <!-- ================ -->
-                <h1 class="page-title">{{ article.title }}</h1>
+                <h4 class="page-title">{{ article.title }}</h4>
                 <!-- page-title end -->
 
                 <!-- blogpost start -->
@@ -28,9 +28,6 @@
                             </div>
                         </div>
                         <div class="blogpost-content">
-                            <header>
-                                <div class="submitted"><i class="fa fa-user pr-5"></i> by {{article.author}}</div>
-                            </header>
                             {% for flashMessage in app.session.flashbag.get('success') %}
                                 <div class="alert alert-success">
                                     {{ flashMessage }}

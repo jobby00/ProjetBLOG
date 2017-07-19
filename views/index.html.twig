@@ -191,9 +191,9 @@
             {% for article  in articles%}
                 <div class="space hidden-md hidden-lg"></div>
                 <div class="col-md-12">
-                    <h2 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h2>
-                    <p class="lead text-center"><i>{{ article.date}}</i></p>
-                    <p class="space-top">{{ article.content| striptags|slice(0, 250) |raw |raw}}</p>
+                    <h4 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h4>
+                    <p class="lead text-center"><i>{{ article.author }} {{ article.date}}</i></p>
+                    <p class="space-top">{{ article.content| striptags|slice(0, 250) |raw |raw}} ... </p>
                     <a href="{{ path('article', { 'id': article.id }) }}" class="btn btn-lg btn-default center">Lire la suite</a>
                 </div>
                 {% endfor %}

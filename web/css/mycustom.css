@@ -169,3 +169,11 @@ h3{
 section>.container{
     padding: 170px 0 !important;
 }
+
+p > a > i .allarticles{
+    color: #666666 !important;
+}
+
+.allarticles{
+    color: #2176e8 !important;
+}

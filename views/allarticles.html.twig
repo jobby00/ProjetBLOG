@@ -1,6 +1,6 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Tous les Articles{% endblock %}
 
 {% block content %}
 <section class="main-container container">
@@ -18,13 +18,25 @@
                                 <div class="col-md-12">
                                     <h2 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h2>
                                     <p class="lead text-center"><i>{{ article.date}}</i></p>
-                                    <p class="space-top"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.content| striptags|slice(0, 300) |raw |raw}}</a></p>
+                                    <p class="space-top">{{ article.content| striptags|slice(0, 450) |raw |raw}} ...
+                                        <a class="allarticles" href="{{ path('article', { 'id':article.id }) }}"><i class="material-icons">Lire la suite</i> </a></p>
                                 </div>
                             {% endfor %}
                             <div class="space hidden-md hidden-lg"></div>
                         </div>
                     </div>
                 </div>
+                <!-- pagination start -->
+                <ul class="pagination">
+                    <li><a href="#">«</a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+                <!-- pagination end -->
             </div>
         </div>
     </div>

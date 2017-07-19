@@ -47,7 +47,7 @@
                                             {% for article in articles %}
                                             <tbody>
                                             <tr>
-                                                <td><a class="articleTitle" href="{{ path('article', { 'id': article.id }) }}">{{ article.title }}</a></td>
+                                                <td><a class="articleTitle" href="{{ path('article', { 'id': article.id }) }}">{{ article.title}}</a></td>
                                                 <td>{{ article.date  }}</td>
                                                 <td>
                                                     <a href="{{ path('admin_article_edit', { 'id': article.id }) }}" class="btn btn-primary btn-xs" title="Modifier">   <i class="glyphicon glyphicon-pencil"></i></a>
