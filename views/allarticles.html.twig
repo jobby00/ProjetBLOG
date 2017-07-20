@@ -28,13 +28,19 @@
                 </div>
                 <!-- pagination start -->
                 <ul class="pagination">
-                    <li><a href="#">«</a></li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
+                    {% for number, position in pages %}
+                    {% if position == 'first' %}
+                    <li><a href="/{{ number }}">«</a></li>
+                    {% elseif position == 'less' or position == 'more' %}
+                    <li class="active"><a href="/{{ number }}">...<span class="sr-only">(current)</span></a></li>
+                    {% elseif position == 'previous' or position == 'next' %}
+                    <li><a href="/{{ number }}">{{ number }}</a></li>
+                    {% elseif position == 'current' %}
+                        <li>{{ number }}</li>
+                    {% elseif position == 'last' %}
+                        <li><a href="/{{ number }}">»</a></li>
+                    {% endif %}
+                    {% endfor %}
                 </ul>
                 <!-- pagination end -->
             </div>
