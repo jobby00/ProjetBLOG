@@ -15,7 +15,7 @@
                         <div class="row">
                             {% for article  in articles%}
                                 <div class="space hidden-md hidden-lg"></div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h2 class="text-center"><a class="articleTitle" href="{{ path('article', { 'id':article.id }) }}">{{ article.title }}</a></h2>
                                     <p class="lead text-center"><i>{{ article.date}}</i></p>
                                     <p class="space-top">{{ article.content| striptags|slice(0, 450) |raw |raw}} ...
@@ -26,22 +26,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- pagination start -->
-                <ul class="pagination">
-                    {% for number, position in pages %}
-                    {% if position == 'first' %}
-                    <li><a href="/{{ number }}">«</a></li>
-                    {% elseif position == 'less' or position == 'more' %}
-                    <li class="active"><a href="/{{ number }}">...<span class="sr-only">(current)</span></a></li>
-                    {% elseif position == 'previous' or position == 'next' %}
-                    <li><a href="/{{ number }}">{{ number }}</a></li>
-                    {% elseif position == 'current' %}
-                        <li>{{ number }}</li>
-                    {% elseif position == 'last' %}
-                        <li><a href="/{{ number }}">»</a></li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
                 <!-- pagination end -->
             </div>
         </div>
