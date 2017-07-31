@@ -17,13 +17,25 @@
  * <http://www.doctrine-project.org>.
  */
 
-namespace DoctrineTest\InstantiatorTestAsset;
+namespace Doctrine\Common\Cache;
 
 /**
- * A simple trait with no attached logic
+ * Interface for cache drivers that allows to put many items at once.
  *
- * @author Marco Pivetta <ocramius@gmail.com>
+ * @link   www.doctrine-project.org
+ * @since  1.7
+ * @author Benoit Burnichon <bburnichon@gmail.com>
+ *
+ * @deprecated
  */
-trait SimpleTraitAsset
+interface MultiDeleteCache
 {
+    /**
+     * Deletes several cache entries.
+     *
+     * @param string[] $keys Array of keys to delete from cache
+     *
+     * @return bool TRUE if the operation was successful, FALSE if it wasn't.
+     */
+    function deleteMultiple(array $keys);
 }

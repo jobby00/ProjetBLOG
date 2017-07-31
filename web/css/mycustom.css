@@ -14,6 +14,12 @@ header.padding-top{
 
 .dark.header .navbar-default .navbar-nav > li > a {
     color: #ffffff !important;
+
+}
+
+.dark.header .main-navigation .navbar-nav > .open> a, .dark.header .main-navigation .navbar-nav > .open > a:hover, .dark.header .main-navigation .navbar-nav >.open > a:focus{
+    background-color: rgba(21, 85, 241, 0.30) !important;
+    border: 1px solid rgba(3, 12, 29, 0.05) !important;
 }
 
 :not(.fixed-header-on) .dark.header.transparent {
@@ -62,6 +68,12 @@ table>tbody>tr>td>.btn {
 .btn-default {
     background-color: #3d93e8 !important;
     border-color: #0c61bf !important;
+}
+
+.btn.btn-lg {
+    padding: 9px 0px !important;
+    font-size: 10px !important;
+    min-width: 100px !important;
 }
 
 .blogpost .post-info {
@@ -163,11 +175,11 @@ h3{
 }
 
 .main-container {
-    padding: 140px 0 !important;
+    padding: 120px 0 !important;
 }
 
 section>.container{
-    padding: 170px 0 !important;
+    padding: 120px 0 !important;
 }
 
 p > a > i .allarticles{
@@ -176,4 +188,8 @@ p > a > i .allarticles{
 
 .allarticles{
     color: #2176e8 !important;
+}
+
+.container-home{
+    padding: 120px 0 !important;
 }

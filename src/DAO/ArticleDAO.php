@@ -12,7 +12,7 @@ class ArticleDAO extends DAO
      * @return array A list of all articles.
      */
     public function findAll() {
-        $sql = "SELECT * FROM t_article ORDER BY art_id DESC LIMIT 0, 5";
+        $sql = "SELECT * FROM t_article ORDER BY art_id DESC";
         $result = $this->getDb()->fetchAll($sql);
         // Convert query result to an array of domain objects
         $articles = array();
@@ -25,7 +25,7 @@ class ArticleDAO extends DAO
 
 
     public function limit() {
-        $sql = "SELECT * FROM t_article ORDER BY art_id DESC LIMIT 0, 2";
+        $sql = "SELECT * FROM t_article ORDER BY art_id DESC LIMIT 0, 4";
         $result = $this->getDb()->fetchAll($sql);
         // Convert query result to an array of domain objects
         $articles = array();
@@ -75,7 +75,6 @@ class ArticleDAO extends DAO
         $articleData = array(
             'art_title' => $article->getTitle(),
             'art_content' => $article->getContent(),
-            'art_author' => $article->getAuthor(),
             'art_date' => $article->getDate(),
         );
 
