@@ -15,9 +15,6 @@ class ArticleType extends AbstractType
             ->add('title', TextType::class)
             ->add('content', TextareaType::class, array(
                 'required' => false
-            ))
-            ->add('author', TextType::class, array(
-                'required' => false
             ));
     }
 
